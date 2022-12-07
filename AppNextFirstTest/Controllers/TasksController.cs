@@ -26,19 +26,18 @@ public class TasksController : ControllerBase
 
     [HttpPost]
     [ActionName("Task")]
-    public void Post(User user){
+    public void Post(Task task){
         
     }
 
     [HttpPut]
     [ActionName("Task")]
-    public void Put(User user){
+    public void Put(Task task){
         
     }
 
-    // could be improved by only using id
     [HttpDelete]
     [ActionName("Task")]
-    public void Delete(User user){
+    public void Delete(Task task){
     }
 }
