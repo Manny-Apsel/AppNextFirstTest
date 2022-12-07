@@ -1,0 +1,1 @@
+Insert INTO Tasks Values (1, 'build app', 'appnext first test', 1);
