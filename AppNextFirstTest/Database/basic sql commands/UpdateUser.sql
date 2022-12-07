@@ -1,0 +1,1 @@
+UPDATE Users Set Username = 'Sammy' WHERE UserId = 1;

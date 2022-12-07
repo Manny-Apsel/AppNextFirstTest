@@ -1,0 +1,1 @@
+SELECT * FROM Users WHERE UserId IN ( SELECT max( UserId ) FROM Users );
