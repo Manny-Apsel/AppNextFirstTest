@@ -1,7 +1,6 @@
-using Microsoft.Data.Sqlite;
-
 namespace AppNextFirstTest.Database;
 
 public interface IDbConnection {
-    void ConnectDb(string command);
+    void ExecuteQuery(string sql, object obj);
+    public List<T> ExecuteQuery<T>(string sql) where T : new();
 }

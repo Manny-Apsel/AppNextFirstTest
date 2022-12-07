@@ -12,8 +12,14 @@ public class Program
 
         builder.Services.AddControllersWithViews();
         builder.Services.AddScoped<IDbConnection, DbConnection>();
-
+        builder.Services.AddSwaggerGen();
+        // need this to use swagger because api calls url only respond to lowercase and not to pascalcase
+        // for some reason swagger makes it pascalcase while react app knows it has to be lowercase
+        builder.Services.AddRouting(options => options.LowercaseUrls = true);
         var app = builder.Build();
+
+        app.UseSwagger();
+        app.UseSwaggerUI();
 
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
