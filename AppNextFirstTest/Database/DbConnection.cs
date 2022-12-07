@@ -13,7 +13,7 @@ public class DbConnection : IDbConnection
     public void ConnectDb(string sql)
     {
         using (var connection = new SqliteConnection("Data Source=Database/data.db"))
-        {hello
+        {
             connection.Open();
 
             var command = connection.CreateCommand();
