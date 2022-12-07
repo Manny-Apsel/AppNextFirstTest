@@ -1,3 +1,4 @@
+using AppNextFirstTest.Database;
 
 namespace AppNextFirstTest;
 
@@ -10,6 +11,7 @@ public class Program
         // Add services to the container.
 
         builder.Services.AddControllersWithViews();
+        builder.Services.AddScoped<IDbConnection, DbConnection>();
 
         var app = builder.Build();
 
