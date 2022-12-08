@@ -7,13 +7,21 @@ export class Home extends Component {
 
   constructor(props) {
     super(props);
+    this.state = { selectedUserId: null };
+    this.selectedUserId = this.selectedUserId.bind(this);
   }
+
+  selectedUserId(userId) {
+    this.setState({ selectedUserId: userId });
+    console.log("state changed");
+  }
+
 
   render() {
     return (
       <Grid container spacing={2}>
         <Grid item xs={4}>
-          <User />
+          <User onGetTasks={this.selectedUserId} />
         </Grid>
         <Grid item xs={8}>
           {/* Tasks component */}

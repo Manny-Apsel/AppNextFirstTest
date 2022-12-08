@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using AppNextFirstTest.Database;
 using AppNextFirstTest.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ namespace AppNextFirstTest.Controllers;
 [Route("[controller]/[action]")]
 public class UsersController : ControllerBase
 {
+
     private readonly ILogger<UsersController> _logger;
     private readonly IDbConnection database;
     public UsersController(ILogger<UsersController> logger, IDbConnection db)
@@ -47,8 +49,8 @@ public class UsersController : ControllerBase
     // could be improved by only using id
     [HttpDelete]
     [ActionName("User")]
-    public void Delete(User user){
-        var query = $"DELETE FROM Users WHERE UserId = {user.UserId};";
+    public void Delete([Required] long userId){
+        var query = $"DELETE FROM Users WHERE UserId = {userId};";
         database.ExecuteQuery(query);
     }
 }
