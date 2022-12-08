@@ -8,7 +8,6 @@ namespace AppNextFirstTest.Controllers;
 [Route("[controller]/[action]")]
 public class UsersController : ControllerBase
 {
-
     private readonly ILogger<UsersController> _logger;
     private readonly IDbConnection database;
     public UsersController(ILogger<UsersController> logger, IDbConnection db)
