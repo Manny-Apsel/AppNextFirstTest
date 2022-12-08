@@ -6,7 +6,7 @@ export default class User extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { users: [{ userId: 1, username: "yo" }], loading: false, dialog: false, selectedUser: {} };
+        this.state = { users: [], loading: false, dialog: false, selectedUser: {} };
         this.getUsers = this.getUsers.bind(this);
         this.getTasks = this.getTasks.bind(this);
         this.changeDialog = this.changeDialog.bind(this);
