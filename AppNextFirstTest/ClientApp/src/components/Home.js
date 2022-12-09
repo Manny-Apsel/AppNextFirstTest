@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AppBar, Box, Grid, Toolbar, Typography } from '@mui/material'
 import User from './User'
+import Task from './Task'
 
 export class Home extends Component {
   static displayName = Home.name;
@@ -24,7 +25,7 @@ export class Home extends Component {
           <User onGetTasks={this.selectedUserId} />
         </Grid>
         <Grid item xs={8}>
-          {/* Tasks component */}
+          <Task userId={this.state.userId} />
         </Grid>
       </Grid>
     );
