@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Paper, Table, TableRow, TableBody, TableCell, TableContainer, TableHead, Typography, Button, Dialog, DialogContent, TextField, DialogActions } from '@mui/material'
+import { Paper, Table, Grid, TableRow, TableBody, TableCell, TableContainer, TableHead, Typography, Button, Dialog, DialogContent, TextField, DialogActions } from '@mui/material'
 
 export default class User extends Component {
     static displayName = User.name;
@@ -24,8 +24,8 @@ export default class User extends Component {
         this.setState({ users: data, loading: false })
     }
 
-    getTasks(userId) {
-        this.props.onGetTasks(userId)
+    getTasks(user) {
+        this.props.onGetTasks(user)
     }
 
     changeDialog(user) {
@@ -60,27 +60,29 @@ export default class User extends Component {
                     <TableHead>
                         <TableCell />
                         <TableCell />
-                        <TableCell />
-                        <TableCell />
                     </TableHead>
                     <TableBody>
                         {users.map(user => {
                             return <TableRow key={user.username}>
                                 <TableCell>{user.username}</TableCell>
                                 <TableCell>
-                                    <Button variant="contained" onClick={() => this.getTasks(user.userId)}>
-                                        Select
-                                    </Button>
-                                </TableCell>
-                                <TableCell>
-                                    <Button variant="contained" onClick={() => this.changeDialog(user)}>
-                                        Edit
-                                    </Button>
-                                </TableCell>
-                                <TableCell>
-                                    <Button variant="contained" onClick={() => this.deleteUser(user.userId)}>
-                                        Delete
-                                    </Button>
+                                    <Grid container spacing={0}>
+                                        <Grid item xs={4}>
+                                            <Button sx={{minWidth:100}}variant="contained" onClick={() => this.getTasks(user)}>
+                                                Select
+                                            </Button>
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Button sx={{minWidth:100}} variant="contained" onClick={() => this.changeDialog(user)}>
+                                                Edit
+                                            </Button>
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Button sx={{minWidth:100}} variant="contained" onClick={() => this.deleteUser(user.userId)}>
+                                                Delete
+                                            </Button>
+                                        </Grid>
+                                    </Grid>
                                 </TableCell>
                             </TableRow>
                         })}

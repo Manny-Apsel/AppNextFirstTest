@@ -5,7 +5,7 @@ export default class Task extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { tasks: [], dialog: false, selectedTask: {} }
+        this.state = { tasks: [], dialog: false, selectedTask: {}, loading: false }
         this.getTasks = this.getTasks.bind(this);
         this.changeDialog = this.changeDialog.bind(this);
         this.addTask = this.addTask.bind(this);
@@ -79,7 +79,7 @@ export default class Task extends Component {
         )
     }
 
-    static renderContent() {
+    render() {
         let content = this.state.loading
             ? <p><em>Loading...</em></p>
             : this.renderTasksTable(this.state.tasks);
@@ -87,6 +87,9 @@ export default class Task extends Component {
             <div>
                 <Typography variant="h5" gutterBottom>
                     Tasks
+                </Typography>
+                <Typography variant="caption" display="block" gutterBottom>
+                    Tasks assigned to {this.props.usename}
                 </Typography>
                 <Button onClick={() => this.changeDialog({})}>Create new Task</Button>
                 {content}
@@ -129,16 +132,6 @@ export default class Task extends Component {
                 </Dialog>
 
             </div>
-        )
-    }
-
-    render() {
-        console.log(this.props.userId)
-        let content = !!this.props.userId
-            ? this.renderContent(this.state.tasks)
-            : null
-        return (
-            { content }
         )
     }
 }
