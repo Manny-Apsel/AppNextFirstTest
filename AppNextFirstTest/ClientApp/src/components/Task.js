@@ -17,6 +17,10 @@ export default class Task extends Component {
         this.getTasks();
     }
 
+    componentWillReceiveProps(){
+        this.getTasks();
+    }
+
     async getTasks() {
         console.log("test");
         const response = await fetch(`tasks/user?UserId=${this.props.userId}`)
