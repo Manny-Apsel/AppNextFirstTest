@@ -66,23 +66,15 @@ export default class User extends Component {
                             return <TableRow key={user.username}>
                                 <TableCell>{user.username}</TableCell>
                                 <TableCell>
-                                    <Grid container spacing={0}>
-                                        <Grid item xs={4}>
-                                            <Button sx={{minWidth:100}}variant="contained" onClick={() => this.getTasks(user)}>
-                                                Select
-                                            </Button>
-                                        </Grid>
-                                        <Grid item xs={4}>
-                                            <Button sx={{minWidth:100}} variant="contained" onClick={() => this.changeDialog(user)}>
-                                                Edit
-                                            </Button>
-                                        </Grid>
-                                        <Grid item xs={4}>
-                                            <Button sx={{minWidth:100}} variant="contained" onClick={() => this.deleteUser(user.userId)}>
-                                                Delete
-                                            </Button>
-                                        </Grid>
-                                    </Grid>
+                                    <Button sx={{ marginRight: "1em", minWidth: 100 }} variant="contained" onClick={() => this.getTasks(user)}>
+                                        Select
+                                    </Button>
+                                    <Button sx={{ marginRight: "1em", minWidth: 100 }} variant="contained" onClick={() => this.changeDialog(user)}>
+                                        Edit
+                                    </Button>
+                                    <Button sx={{ marginRight: "1em", minWidth: 100 }} variant="contained" onClick={() => this.deleteUser(user.userId)}>
+                                        Delete
+                                    </Button>
                                 </TableCell>
                             </TableRow>
                         })}

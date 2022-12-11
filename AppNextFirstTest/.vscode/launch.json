@@ -27,9 +27,17 @@
             }
         },
         {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach"
+            "type": "firefox",
+            "request": "launch",
+            "name": "Firefox",
+            "url": "http://localhost:44407",
+            "webRoot": "${workspaceFolder}/ClientApp"
         }
-    ]
+    ],
+    "compounds": [
+      {
+         "name": "Full stack",
+         "configurations": [".NET Core Launch (web)", "Firefox"]
+      }
+     ]
 }

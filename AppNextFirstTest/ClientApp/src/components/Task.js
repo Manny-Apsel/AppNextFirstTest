@@ -64,10 +64,10 @@ export default class Task extends Component {
                                 <TableCell>{task.title}</TableCell>
                                 <TableCell>{task.description}</TableCell>
                                 <TableCell>
-                                    <Button variant="contained" onClick={() => this.changeDialog(task)}>
+                                    <Button variant="contained" onClick={() => this.changeDialog(task)} sx={{marginRight: "1em", minWidth:100}}>
                                         Edit
                                     </Button>
-                                    <Button variant="contained" onClick={() => this.deleteTask(task.taskId)}>
+                                    <Button variant="contained" onClick={() => this.deleteTask(task.taskId)} sx={{marginRight: "1em", minWidth:100}}>
                                         Delete
                                     </Button>
                                 </TableCell>
