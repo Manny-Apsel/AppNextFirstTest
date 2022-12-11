@@ -1,3 +1,3 @@
 # Appnext first technical test
 
-add ````/swagger``` to url to access swagger
+add ```/swagger``` to url to access swagger
