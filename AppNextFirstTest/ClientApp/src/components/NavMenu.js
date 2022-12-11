@@ -13,7 +13,7 @@ export class NavMenu extends Component {
   render() {
     return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="static" sx={{marginBottom: "1em"}}>
           <Toolbar variant="dense">
             <Typography variant="h6" color="inherit" component="div">
               AppNext First Test
