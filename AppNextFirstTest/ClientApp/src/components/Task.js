@@ -5,7 +5,7 @@ export default class Task extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { tasks: [], dialog: false, selectedTask: {}, loading: false }
+        this.state = { tasks: [], dialog: false, selectedTask: {}, loading: true }
         this.getTasks = this.getTasks.bind(this);
         this.changeDialog = this.changeDialog.bind(this);
         this.addTask = this.addTask.bind(this);
@@ -17,7 +17,7 @@ export default class Task extends Component {
         this.getTasks();
     }
 
-    componentWillReceiveProps(){
+    componentDidUpdate() {
         this.getTasks();
     }
 
@@ -68,10 +68,10 @@ export default class Task extends Component {
                                 <TableCell>{task.title}</TableCell>
                                 <TableCell>{task.description}</TableCell>
                                 <TableCell>
-                                    <Button variant="contained" onClick={() => this.changeDialog(task)} sx={{marginRight: "1em", minWidth:100}}>
+                                    <Button variant="contained" onClick={() => this.changeDialog(task)} sx={{ marginRight: "1em", minWidth: 100 }}>
                                         Edit
                                     </Button>
-                                    <Button variant="contained" onClick={() => this.deleteTask(task.taskId)} sx={{marginRight: "1em", minWidth:100}}>
+                                    <Button variant="contained" onClick={() => this.deleteTask(task.taskId)} sx={{ marginRight: "1em", minWidth: 100 }}>
                                         Delete
                                     </Button>
                                 </TableCell>

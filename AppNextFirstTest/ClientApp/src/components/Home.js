@@ -22,7 +22,7 @@ export class Home extends Component {
   }
 
   async selectedUserId(user) {
-    await this.awaitSetState({ selectedUserId: user.userId, selectedUsername: user.userName  });
+    await this.awaitSetState({ selectedUserId: user.userId, selectedUsername: user.username  });
   }
 
 
@@ -31,11 +31,11 @@ export class Home extends Component {
       ? null
       : <Task userId={this.state.selectedUserId} username={this.state.selectedUsername} />
     return (
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
+      <Grid container spacing={2} justifyContent={"space-around"}>
+        <Grid item xs={5}>
           <User onGetTasks={this.selectedUserId} />
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={7}>
           {task}
         </Grid>
       </Grid>
